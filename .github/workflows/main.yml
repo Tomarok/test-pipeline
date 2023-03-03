@@ -1,15 +1,13 @@
-on: push
+name: Check HTTP status code
+
+on: [push]
+
 jobs:
-  deployment:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Make Request
-        id: myRequest
-        uses: fjogeleit/http-request-action@v1
-        with:
-          method: 'GET'
-          url: "https://api-generator.retool.com/IUYKgG/data"
-      - name: Show Response
-        run: |
-          echo ${{ steps.myRequest.outputs.response }}
-          echo ${{ steps.myRequest.outputs.headers }}
+    - name: Check http status code of production site
+      uses: lakuapik/gh-actions-http-status@v1
+      with:
+        sites: '["http://github.com"]'
+        expected: '[301, 200]'
