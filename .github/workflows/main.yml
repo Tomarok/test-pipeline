@@ -7,6 +7,7 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
+          method: 'GET'
           url: "https://api-generator.retool.com/IUYKgG/data"
       - name: Show Response
         run: |
