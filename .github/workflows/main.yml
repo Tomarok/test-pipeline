@@ -7,7 +7,7 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: "http://google.com"
+          url: "https://api-generator.retool.com/IUYKgG/data"
       - name: Show Response
         run: |
           echo ${{ steps.myRequest.outputs.response }}
